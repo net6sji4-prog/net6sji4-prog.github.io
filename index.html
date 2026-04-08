@@ -678,7 +678,19 @@
       animation: promo-pulse-ring 2s ease-out infinite;
       pointer-events: none;
     }
-    @media (max-width: 900px) { .promo-float { display: none; } }
+    @media (max-width: 900px) {
+      .promo-float {
+        top: auto;
+        bottom: 100px;
+        right: 16px;
+        transform: none;
+      }
+      .promo-float-card { width: 90px; padding: 0.9rem 0.7rem; }
+      .promo-float-amount { font-size: 1.3rem; }
+      .promo-float-icon { font-size: 1.3rem; }
+      .promo-float-label, .promo-float-sub { font-size: 0.62rem; }
+      .promo-float-btn { font-size: 0.62rem; padding: 0.3rem 0.5rem; }
+    }
   </style>
 </head>
 <body>
