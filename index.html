@@ -1091,24 +1091,24 @@
     </div>
 
     <div class="fade-in">
-      <form class="contact-form" onsubmit="submitForm(event)">
+      <form class="contact-form" action="https://formspree.io/f/mpqonoll" method="POST" onsubmit="submitForm(event)">
         <div class="form-row">
           <div class="form-group">
             <label>姓名 *</label>
-            <input type="text" placeholder="你的姓名" required>
+            <input type="text" name="姓名" placeholder="你的姓名" required>
           </div>
           <div class="form-group">
             <label>聯絡電話</label>
-            <input type="tel" placeholder="09XX-XXX-XXX">
+            <input type="tel" name="聯絡電話" placeholder="09XX-XXX-XXX">
           </div>
         </div>
         <div class="form-group">
           <label>LINE ID / Email</label>
-          <input type="text" placeholder="方便聯繫的方式">
+          <input type="text" name="LINE_ID或Email" placeholder="方便聯繫的方式">
         </div>
         <div class="form-group">
           <label>投資經驗</label>
-          <select>
+          <select name="投資經驗">
             <option value="">請選擇</option>
             <option>完全沒有經驗的新手</option>
             <option>有買賣過股票</option>
@@ -1118,7 +1118,7 @@
         </div>
         <div class="form-group">
           <label>感興趣的商品</label>
-          <select>
+          <select name="感興趣的商品">
             <option value="">請選擇</option>
             <option>台指期 / 小台</option>
             <option>黃金期貨</option>
@@ -1129,7 +1129,7 @@
         </div>
         <div class="form-group">
           <label>留言 / 想問的問題</label>
-          <textarea placeholder="有什麼想問的都可以說，我會盡快回覆你！"></textarea>
+          <textarea name="留言內容" placeholder="有什麼想問的都可以說，我會盡快回覆你！"></textarea>
         </div>
         <button type="submit" class="form-submit">📩 送出諮詢</button>
         <div id="form-success">✅ 已收到你的訊息！我會在一個工作天內與你聯繫，謝謝！</div>
@@ -1202,11 +1202,34 @@
   }
 
   // Form submit
-  function submitForm(e) {
+  async function submitForm(e) {
     e.preventDefault();
-    document.getElementById('form-success').style.display = 'block';
-    e.target.reset();
-    setTimeout(() => document.getElementById('form-success').style.display = 'none', 6000);
+    const form = e.target;
+    const btn = form.querySelector('.form-submit');
+    btn.textContent = '傳送中...';
+    btn.disabled = true;
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        document.getElementById('form-success').style.display = 'block';
+        form.reset();
+        btn.textContent = '📩 送出諮詢';
+        btn.disabled = false;
+        setTimeout(() => document.getElementById('form-success').style.display = 'none', 8000);
+      } else {
+        alert('送出失敗，請直接加 LINE：aa53991 聯繫我！');
+        btn.textContent = '📩 送出諮詢';
+        btn.disabled = false;
+      }
+    } catch(err) {
+      alert('網路異常，請直接加 LINE：aa53991 聯繫我！');
+      btn.textContent = '📩 送出諮詢';
+      btn.disabled = false;
+    }
   }
 
   // Scroll animations
