@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>陳浩忠（阿忠）期貨營業員｜專業期貨開戶諮詢服務</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="陳浩忠（阿忠），專業期貨營業員，提供台指期、小台、海外期貨開戶諮詢服務。免費開戶、手續費優惠、一對一指導，立即聯繫！">
+  <meta name="keywords" content="期貨開戶,期貨營業員,台指期,小台指,海外期貨,期貨手續費,期貨諮詢,陳浩忠,阿忠期貨">
+  <meta name="author" content="陳浩忠">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yourname.github.io/">
+
+  <!-- Open Graph (社群分享預覽) -->
+  <meta property="og:title" content="陳浩忠（阿忠）期貨營業員｜專業開戶諮詢">
+  <meta property="og:description" content="專業期貨營業員，提供台指期、海外期貨開戶諮詢，手續費優惠，一對一服務。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_TW">
+
+  <!-- Schema.org 結構化資料 (Google SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "陳浩忠",
+    "alternateName": "阿忠",
+    "jobTitle": "期貨營業員",
+    "description": "專業期貨營業員，提供台指期、海外期貨開戶諮詢服務",
+    "url": "https://yourname.github.io/",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "availableLanguage": "Chinese"
+    }
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --gold-dark: #9A7730;
+      --dark: #0D1117;
+      --dark2: #161B22;
+      --dark3: #1C2230;
+      --dark4: #222B3A;
+      --text: #E6E6E6;
+      --text-muted: #8B9BB4;
+      --accent: #1A6FA8;
+      --accent2: #1E8A6E;
+      --border: rgba(201,168,76,0.2);
+      --serif: 'Noto Serif TC', serif;
+      --sans: 'Noto Sans TC', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--dark);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--dark2); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 3px; }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      background: rgba(13,17,23,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--dark);
+      padding: 0.45rem 1.2rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold-light); }
+
+    /* hamburger */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); border-radius: 2px; transition: 0.3s; }
+    .mobile-menu {
+      display: none; position: fixed; top: 64px; left: 0; width: 100%;
+      background: var(--dark2); border-bottom: 1px solid var(--border);
+      padding: 1.5rem 5%; flex-direction: column; gap: 1.2rem; z-index: 999;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--text); text-decoration: none; font-size: 1rem; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 80px 5% 60px;
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.07) 0%, transparent 70%),
+                  linear-gradient(180deg, var(--dark) 0%, var(--dark2) 100%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image: linear-gradient(var(--gold) 1px, transparent 1px),
+                        linear-gradient(90deg, var(--gold) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-content { max-width: 700px; position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid var(--border);
+      color: var(--gold);
+      padding: 0.35rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.25;
+      color: #fff;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--dark);
+      padding: 0.85rem 2rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(201,168,76,0.3);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,168,76,0.4); }
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.85rem 2rem;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-stats {
+      display: flex; gap: 2.5rem; margin-top: 4rem; flex-wrap: wrap;
+    }
+    .stat { border-left: 2px solid var(--gold); padding-left: 1rem; }
+    .stat-num { font-family: var(--serif); font-size: 1.8rem; color: var(--gold); font-weight: 700; }
+    .stat-label { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* ── TICKER ── */
+    .ticker-wrap {
+      background: var(--dark2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden; padding: 0.6rem 0;
+    }
+    .ticker {
+      display: flex; gap: 3rem;
+      animation: ticker 30s linear infinite;
+      width: max-content;
+    }
+    .ticker-item { display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; font-size: 0.82rem; }
+    .ticker-name { color: var(--text-muted); }
+    .ticker-price { color: #fff; font-weight: 500; }
+    .ticker-change.up { color: #4ade80; }
+    .ticker-change.down { color: #f87171; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── SECTION BASE ── */
+    section { padding: 80px 5%; }
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    .section-desc { color: var(--text-muted); max-width: 560px; line-height: 1.8; margin-bottom: 3rem; }
+
+    /* ── ABOUT ── */
+    #about { background: var(--dark2); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+    }
+    .about-avatar {
+      width: 180px; height: 180px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif); font-size: 4rem; color: var(--dark);
+      font-weight: 700; margin-bottom: 1.5rem;
+      box-shadow: 0 0 60px rgba(201,168,76,0.25);
+    }
+    .about-items { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
+    .about-item {
+      display: flex; align-items: flex-start; gap: 0.8rem;
+      padding: 1rem 1.2rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    .about-icon { font-size: 1.2rem; margin-top: 2px; }
+    .about-item-title { font-weight: 500; color: var(--gold); margin-bottom: 0.2rem; }
+    .about-item-desc { font-size: 0.88rem; color: var(--text-muted); }
+
+    /* ── SERVICES ── */
+    #services { background: var(--dark); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+    .service-card {
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.8rem;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .service-card:hover { transform: translateY(-4px); border-color: rgba(201,168,76,0.4); box-shadow: 0 12px 40px rgba(201,168,76,0.1); }
+    .service-card:hover::before { opacity: 1; }
+    .service-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .service-title { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.6rem; }
+    .service-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
+    .service-tag {
+      display: inline-block; margin-top: 1rem;
+      background: rgba(201,168,76,0.1); color: var(--gold);
+      padding: 0.2rem 0.7rem; border-radius: 2rem; font-size: 0.75rem;
+    }
+
+    /* ── PRODUCTS ── */
+    #products { background: var(--dark2); }
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+    .product-card {
+      background: var(--dark4);
+      border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.5rem 1.2rem;
+      text-align: center;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .product-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .product-icon { font-size: 2.2rem; margin-bottom: 0.8rem; display: block; }
+    .product-name { font-weight: 700; color: #fff; margin-bottom: 0.4rem; font-size: 0.95rem; }
+    .product-sub { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* ── WHY ME ── */
+    #why { background: var(--dark); }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+    .why-card {
+      background: linear-gradient(135deg, var(--dark3), var(--dark4));
+      border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.8rem 1.5rem;
+      text-align: center;
+    }
+    .why-num { font-family: var(--serif); font-size: 2.5rem; color: var(--gold); font-weight: 700; line-height: 1; }
+    .why-title { font-weight: 600; color: #fff; margin: 0.6rem 0 0.4rem; }
+    .why-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ── ARTICLES ── */
+    #articles { background: var(--dark2); }
+    .articles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .article-card {
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      border-radius: 10px; overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .article-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+    .article-thumb {
+      height: 120px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem;
+    }
+    .article-thumb.t1 { background: linear-gradient(135deg, #0f2027, #203a43); }
+    .article-thumb.t2 { background: linear-gradient(135deg, #141e30, #243b55); }
+    .article-thumb.t3 { background: linear-gradient(135deg, #1a1a2e, #16213e); }
+    .article-thumb.t4 { background: linear-gradient(135deg, #0f0c29, #302b63); }
+    .article-body { padding: 1.2rem; }
+    .article-tag {
+      font-size: 0.72rem; color: var(--gold); letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 0.5rem;
+    }
+    .article-title { font-weight: 600; color: #fff; font-size: 0.95rem; line-height: 1.4; margin-bottom: 0.5rem; }
+    .article-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ── FAQ ── */
+    #faq { background: var(--dark); }
+    .faq-list { max-width: 760px; display: flex; flex-direction: column; gap: 1rem; }
+    .faq-item { background: var(--dark3); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+    .faq-q {
+      width: 100%; background: none; border: none;
+      padding: 1.2rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      cursor: pointer; text-align: left;
+      color: #fff; font-size: 0.95rem; font-weight: 500; font-family: var(--sans);
+    }
+    .faq-q:hover { background: rgba(255,255,255,0.03); }
+    .faq-arrow { color: var(--gold); font-size: 1.2rem; transition: transform 0.3s; }
+    .faq-item.open .faq-arrow { transform: rotate(45deg); }
+    .faq-a {
+      display: none;
+      padding: 0 1.5rem 1.2rem;
+      font-size: 0.88rem; color: var(--text-muted); line-height: 1.8;
+      border-top: 1px solid var(--border);
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--dark2); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
+    .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1.2rem; background: var(--dark3); border: 1px solid var(--border); border-radius: 8px;
+    }
+    .contact-icon { font-size: 1.5rem; }
+    .contact-label { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.25rem; letter-spacing: 0.05em; }
+    .contact-val { color: var(--gold); font-weight: 500; }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group label { font-size: 0.82rem; color: var(--text-muted); }
+    .form-group input, .form-group select, .form-group textarea {
+      background: var(--dark4); border: 1px solid var(--border);
+      color: var(--text); border-radius: 6px; padding: 0.75rem 1rem;
+      font-family: var(--sans); font-size: 0.9rem; outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
+    .form-group select option { background: var(--dark4); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-submit {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--dark); border: none; border-radius: 6px;
+      padding: 0.9rem; font-size: 0.95rem; font-weight: 700;
+      cursor: pointer; transition: opacity 0.2s, transform 0.2s;
+    }
+    .form-submit:hover { opacity: 0.9; transform: translateY(-1px); }
+    #form-success {
+      display: none; background: rgba(74,222,128,0.1); border: 1px solid rgba(74,222,128,0.3);
+      color: #4ade80; padding: 1rem; border-radius: 6px; text-align: center; font-size: 0.9rem;
+    }
+
+    /* ── DISCLAIMER ── */
+    .disclaimer {
+      background: rgba(201,168,76,0.06);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 8px; padding: 1.2rem 1.5rem;
+      font-size: 0.8rem; color: var(--text-muted); line-height: 1.7; margin-top: 2rem;
+    }
+    .disclaimer strong { color: var(--gold); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark); border-top: 1px solid var(--border);
+      padding: 3rem 5% 1.5rem;
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2rem; }
+    .footer-brand { font-family: var(--serif); font-size: 1.3rem; color: var(--gold); margin-bottom: 0.8rem; }
+    .footer-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; }
+    .footer-heading { font-size: 0.78rem; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-bottom {
+      border-top: 1px solid var(--border); padding-top: 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.78rem; color: var(--text-muted); flex-wrap: wrap; gap: 0.5rem;
+    }
+
+    /* ── LINE FLOAT BUTTON ── */
+    .line-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 9999;
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+    }
+    .line-btn {
+      width: 60px; height: 60px; border-radius: 50%;
+      background: #06C755;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(6,199,85,0.45);
+      text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+      animation: pulse-line 2.5s ease-in-out infinite;
+    }
+    .line-btn:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(6,199,85,0.6); }
+    .line-btn svg { width: 34px; height: 34px; fill: #fff; }
+    .line-label {
+      background: rgba(6,199,85,0.9); color: #fff;
+      padding: 3px 10px; border-radius: 12px;
+      font-size: 0.72rem; font-weight: 600;
+      white-space: nowrap;
+    }
+    @keyframes pulse-line {
+      0%, 100% { box-shadow: 0 4px 20px rgba(6,199,85,0.45); }
+      50% { box-shadow: 0 4px 30px rgba(6,199,85,0.75), 0 0 0 8px rgba(6,199,85,0.1); }
+    }
+
+    /* ── SCROLL TO TOP ── */
+    #scroll-top {
+      position: fixed; bottom: 28px; left: 28px; z-index: 9998;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--dark3); border: 1px solid var(--border);
+      color: var(--gold); font-size: 1.2rem; cursor: pointer;
+      display: none; align-items: center; justify-content: center;
+      transition: background 0.2s, transform 0.2s;
+    }
+    #scroll-top:hover { background: var(--dark4); transform: translateY(-2px); }
+    #scroll-top.visible { display: flex; }
+
+    /* ── ANIMATIONS ── */
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s, transform 0.6s; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ──────── NAVBAR ──────── -->
+<nav>
+  <a class="nav-logo" href="#">陳浩忠｜期貨顧問</a>
+  <ul class="nav-links">
+    <li><a href="#about">關於我</a></li>
+    <li><a href="#services">服務項目</a></li>
+    <li><a href="#products">商品介紹</a></li>
+    <li><a href="#articles">教學文章</a></li>
+    <li><a href="#faq">常見問題</a></li>
+    <li><a href="#contact">聯繫我</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">立即諮詢</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="選單">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">關於我</a>
+  <a href="#services" onclick="closeMenu()">服務項目</a>
+  <a href="#products" onclick="closeMenu()">商品介紹</a>
+  <a href="#articles" onclick="closeMenu()">教學文章</a>
+  <a href="#faq" onclick="closeMenu()">常見問題</a>
+  <a href="#contact" onclick="closeMenu()">📞 立即諮詢</a>
+</div>
+
+<!-- ──────── TICKER ──────── -->
+<div style="margin-top:64px">
+<div class="ticker-wrap">
+  <div class="ticker" id="ticker">
+    <span class="ticker-item"><span class="ticker-name">台指期</span><span class="ticker-price">22,450</span><span class="ticker-change up">▲ +125 (+0.56%)</span></span>
+    <span class="ticker-item"><span class="ticker-name">小台指</span><span class="ticker-price">22,447</span><span class="ticker-change up">▲ +123 (+0.55%)</span></span>
+    <span class="ticker-item"><span class="ticker-name">黃金</span><span class="ticker-price">2,345.6</span><span class="ticker-change up">▲ +12.4 (+0.53%)</span></span>
+    <span class="ticker-item"><span class="ticker-name">原油(WTI)</span><span class="ticker-price">78.42</span><span class="ticker-change down">▼ -0.38 (-0.48%)</span></span>
+    <span class="ticker-item"><span class="ticker-name">日經225</span><span class="ticker-price">38,920</span><span class="ticker-change up">▲ +245 (+0.63%)</span></span>
+    <span class="ticker-item"><span class="ticker-name">S&P 500</span><span class="ticker-price">5,218</span><span class="ticker-change down">▼ -8.5 (-0.16%)</span></span>
+    <span class="ticker-item"><span class="ticker-name">美元/日圓</span><span class="ticker-price">153.45</span><span class="ticker-change up">▲ +0.32 (+0.21%)</span></span>
+    <span class="ticker-item"><span class="ticker-name">比特幣期貨</span><span class="ticker-price">67,820</span><span class="ticker-change up">▲ +1,240 (+1.86%)</span></span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item"><span class="ticker-name">台指期</span><span class="ticker-price">22,450</span><span class="ticker-change up">▲ +125 (+0.56%)</span></span>
+    <span class="ticker-item"><span class="ticker-name">小台指</span><span class="ticker-price">22,447</span><span class="ticker-change up">▲ +123 (+0.55%)</span></span>
+    <span class="ticker-item"><span class="ticker-name">黃金</span><span class="ticker-price">2,345.6</span><span class="ticker-change up">▲ +12.4 (+0.53%)</span></span>
+    <span class="ticker-item"><span class="ticker-name">原油(WTI)</span><span class="ticker-price">78.42</span><span class="ticker-change down">▼ -0.38 (-0.48%)</span></span>
+    <span class="ticker-item"><span class="ticker-name">日經225</span><span class="ticker-price">38,920</span><span class="ticker-change up">▲ +245 (+0.63%)</span></span>
+    <span class="ticker-item"><span class="ticker-name">S&P 500</span><span class="ticker-price">5,218</span><span class="ticker-change down">▼ -8.5 (-0.16%)</span></span>
+    <span class="ticker-item"><span class="ticker-name">美元/日圓</span><span class="ticker-price">153.45</span><span class="ticker-change up">▲ +0.32 (+0.21%)</span></span>
+    <span class="ticker-item"><span class="ticker-name">比特幣期貨</span><span class="ticker-price">67,820</span><span class="ticker-change up">▲ +1,240 (+1.86%)</span></span>
+  </div>
+</div>
+</div>
+
+<!-- ──────── HERO ──────── -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ 專業期貨營業員</div>
+    <h1>陳浩忠（阿忠）<br><span>一對一期貨諮詢</span><br>讓你的投資更有方向</h1>
+    <p class="hero-sub">提供台指期、海外期貨、商品期貨等完整開戶服務，手續費透明、條件優惠，從新手到老手都能找到最適合的交易方式。</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">🗂️ 免費開戶諮詢</a>
+      <a href="#services" class="btn-outline">了解服務內容 →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">10+</div><div class="stat-label">年期貨從業經驗</div></div>
+      <div class="stat"><div class="stat-num">500+</div><div class="stat-label">服務客戶數</div></div>
+      <div class="stat"><div class="stat-num">24hr</div><div class="stat-label">LINE 即時回覆</div></div>
+      <div class="stat"><div class="stat-num">0</div><div class="stat-label">開戶費用</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────── ABOUT ──────── -->
+<section id="about">
+  <div class="about-grid fade-in">
+    <div>
+      <div class="section-label">ABOUT ME</div>
+      <h2 class="section-title">關於我</h2>
+      <p class="section-desc">你好，我是陳浩忠，大家都叫我阿忠。從事期貨業務超過十年，服務過數百位投資人，從完全不懂期貨的新手，到有豐富經驗的交易者，我都能協助你找到最合適的交易方式。</p>
+      <div class="about-items">
+        <div class="about-item">
+          <span class="about-icon">📜</span>
+          <div>
+            <div class="about-item-title">專業證照</div>
+            <div class="about-item-desc">持有期貨業務員資格，合法執業，受主管機關監管</div>
+          </div>
+        </div>
+        <div class="about-item">
+          <span class="about-icon">🎯</span>
+          <div>
+            <div class="about-item-title">量身諮詢</div>
+            <div class="about-item-desc">根據你的資金規模、風險承受度，提供最合適的建議</div>
+          </div>
+        </div>
+        <div class="about-item">
+          <span class="about-icon">💬</span>
+          <div>
+            <div class="about-item-title">持續陪伴</div>
+            <div class="about-item-desc">開戶後持續追蹤，不是只管開戶，更重視長期服務</div>
+          </div>
+        </div>
+        <div class="about-item">
+          <span class="about-icon">📊</span>
+          <div>
+            <div class="about-item-title">市場分析</div>
+            <div class="about-item-desc">定期分享市場觀點，協助你掌握盤面趨勢與機會</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center">
+      <div class="about-avatar">忠</div>
+      <h3 style="font-family:var(--serif);font-size:1.5rem;color:#fff">陳浩忠（阿忠）</h3>
+      <p style="color:var(--gold);font-size:0.9rem;margin-top:0.3rem">期貨業務員 · 投資理財顧問</p>
+      <p style="color:var(--text-muted);font-size:0.85rem;margin-top:1rem;max-width:300px;line-height:1.7">「每一位客戶對我來說都很重要，你的成功就是我最好的成績單。」</p>
+    </div>
+  </div>
+</section>
+
+<!-- ──────── SERVICES ──────── -->
+<section id="services">
+  <div class="section-label fade-in">SERVICES</div>
+  <h2 class="section-title fade-in">服務項目</h2>
+  <p class="section-desc fade-in">從開戶到交易，全程一對一服務，讓你在期貨市場走得更穩。</p>
+  <div class="services-grid">
+    <div class="service-card fade-in">
+      <div class="service-icon">🗂️</div>
+      <div class="service-title">期貨開戶協助</div>
+      <div class="service-desc">完全免費開戶，手把手引導完成開戶流程，線上即可辦理，無需親臨，快速審核。</div>
+      <span class="service-tag">免費服務</span>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">💰</div>
+      <div class="service-title">手續費優惠</div>
+      <div class="service-desc">提供具競爭力的手續費方案，根據交易量彈性調整，讓你每一筆交易都節省成本。</div>
+      <span class="service-tag">條件優惠</span>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">📚</div>
+      <div class="service-title">新手入門教學</div>
+      <div class="service-desc">完全不懂期貨也沒關係！從什麼是期貨、保證金制度、下單方式，一步步帶你上手。</div>
+      <span class="service-tag">免費指導</span>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">📈</div>
+      <div class="service-title">行情分析分享</div>
+      <div class="service-desc">定期透過 LINE 分享重要指數、籌碼、技術面解析，協助你掌握市場脈動。</div>
+      <span class="service-tag">每週更新</span>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">🌍</div>
+      <div class="service-title">海外期貨諮詢</div>
+      <div class="service-desc">美股指數、黃金、石油、外匯等海外期貨商品，協助你分散投資、拓展交易視野。</div>
+      <span class="service-tag">國際商品</span>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">🔔</div>
+      <div class="service-title">LINE 即時服務</div>
+      <div class="service-desc">加入 LINE 後，有任何問題即時發問，我盡力在交易時段內快速回覆解答。</div>
+      <span class="service-tag">即時回覆</span>
+    </div>
+  </div>
+</section>
+
+<!-- ──────── PRODUCTS ──────── -->
+<section id="products">
+  <div class="section-label fade-in">PRODUCTS</div>
+  <h2 class="section-title fade-in">可交易商品</h2>
+  <p class="section-desc fade-in">涵蓋國內外主要期貨商品，滿足不同投資策略需求。</p>
+  <div class="products-grid">
+    <div class="product-card fade-in">
+      <span class="product-icon">🇹🇼</span>
+      <div class="product-name">台指期（TX）</div>
+      <div class="product-sub">台灣加權指數期貨</div>
+    </div>
+    <div class="product-card fade-in">
+      <span class="product-icon">📉</span>
+      <div class="product-name">小台指（MTX）</div>
+      <div class="product-sub">適合小資族入門</div>
+    </div>
+    <div class="product-card fade-in">
+      <span class="product-icon">💛</span>
+      <div class="product-name">黃金期貨</div>
+      <div class="product-sub">國際黃金避險工具</div>
+    </div>
+    <div class="product-card fade-in">
+      <span class="product-icon">🛢️</span>
+      <div class="product-name">原油期貨</div>
+      <div class="product-sub">WTI / Brent 輕原油</div>
+    </div>
+    <div class="product-card fade-in">
+      <span class="product-icon">🇺🇸</span>
+      <div class="product-name">美股指期貨</div>
+      <div class="product-sub">S&P 500 / 那斯達克</div>
+    </div>
+    <div class="product-card fade-in">
+      <span class="product-icon">🌾</span>
+      <div class="product-name">農產品期貨</div>
+      <div class="product-sub">黃豆、玉米、小麥</div>
+    </div>
+    <div class="product-card fade-in">
+      <span class="product-icon">💴</span>
+      <div class="product-name">外匯期貨</div>
+      <div class="product-sub">美元、日圓、歐元</div>
+    </div>
+    <div class="product-card fade-in">
+      <span class="product-icon">₿</span>
+      <div class="product-name">加密貨幣期貨</div>
+      <div class="product-sub">比特幣、以太坊</div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────── WHY ME ──────── -->
+<section id="why" style="background:var(--dark3)">
+  <div class="section-label fade-in">WHY CHOOSE ME</div>
+  <h2 class="section-title fade-in">為什麼選擇我？</h2>
+  <p class="section-desc fade-in">選對營業員，交易更有保障。</p>
+  <div class="why-grid">
+    <div class="why-card fade-in">
+      <div class="why-num">01</div>
+      <div class="why-title">合法執業</div>
+      <div class="why-desc">持有主管機關核發證照，在合法期貨商任職，有效保障你的資金安全</div>
+    </div>
+    <div class="why-card fade-in">
+      <div class="why-num">02</div>
+      <div class="why-title">透明收費</div>
+      <div class="why-desc">手續費結構清楚透明，沒有隱藏費用，讓你清楚知道每筆成本</div>
+    </div>
+    <div class="why-card fade-in">
+      <div class="why-num">03</div>
+      <div class="why-title">新手友善</div>
+      <div class="why-desc">擅長從零教起，不怕問、不嫌棄，耐心回答每一個問題</div>
+    </div>
+    <div class="why-card fade-in">
+      <div class="why-num">04</div>
+      <div class="why-title">長期服務</div>
+      <div class="why-desc">不是一次性業務，開戶後持續追蹤服務，陪你一路成長</div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────── ARTICLES ──────── -->
+<section id="articles">
+  <div class="section-label fade-in">KNOWLEDGE</div>
+  <h2 class="section-title fade-in">期貨教學文章</h2>
+  <p class="section-desc fade-in">從基礎到進階，幫助你建立正確的期貨交易知識。</p>
+  <div class="articles-grid">
+    <div class="article-card fade-in">
+      <div class="article-thumb t1">📖</div>
+      <div class="article-body">
+        <div class="article-tag">新手必讀</div>
+        <div class="article-title">什麼是期貨？新手入門完全解析</div>
+        <div class="article-desc">期貨不是賭博，它是合法的金融避險與投機工具。本文帶你了解期貨基本概念、保證金制度與交易方式。</div>
+      </div>
+    </div>
+    <div class="article-card fade-in">
+      <div class="article-thumb t2">📊</div>
+      <div class="article-body">
+        <div class="article-tag">風險管理</div>
+        <div class="article-title">保證金追繳（Margin Call）是什麼？如何避免？</div>
+        <div class="article-desc">了解保證金追繳機制，掌握資金控管原則，讓每一筆交易都在你的掌控之中。</div>
+      </div>
+    </div>
+    <div class="article-card fade-in">
+      <div class="article-thumb t3">🎯</div>
+      <div class="article-body">
+        <div class="article-tag">技術分析</div>
+        <div class="article-title">台指期技術分析入門：K線、均線、RSI</div>
+        <div class="article-desc">學會看懂基本技術指標，讓你在進出場時更有依據，不再憑感覺交易。</div>
+      </div>
+    </div>
+    <div class="article-card fade-in">
+      <div class="article-thumb t4">💡</div>
+      <div class="article-body">
+        <div class="article-tag">交易策略</div>
+        <div class="article-title">台指期夜盤攻略：時間、特性與注意事項</div>
+        <div class="article-desc">台指期夜盤跟日盤差在哪？流動性、波動度、應對策略，一篇搞懂。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────── FAQ ──────── -->
+<section id="faq" style="background:var(--dark2)">
+  <div class="section-label fade-in">FAQ</div>
+  <h2 class="section-title fade-in">常見問題</h2>
+  <p class="section-desc fade-in">有任何疑問，歡迎直接 LINE 我，以下是最常被問到的問題。</p>
+  <div class="faq-list fade-in">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">開戶需要多少錢？有最低入金限制嗎？<span class="faq-arrow">+</span></button>
+      <div class="faq-a">開戶本身完全免費，無需支付任何開戶費。入金金額依各期貨商規定不同，通常台指期一口保證金約 NT$8 萬元起，小台指則約 NT$2 萬元起。具體金額可直接聯繫我詢問最新資訊。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">我完全不懂期貨，可以開戶嗎？<span class="faq-arrow">+</span></button>
+      <div class="faq-a">當然可以！完全不懂的新手是最歡迎的。我會從最基礎的概念開始教，包含什麼是期貨、如何下單、如何設定停損，確認你真的了解並做好準備後再開始交易。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">手續費多少？有辦法優惠嗎？<span class="faq-arrow">+</span></button>
+      <div class="faq-a">手續費依商品和交易量有所不同，台指期每口來回約 NT$100–300 不等。交易量大的客戶可申請優惠方案，請直接加我 LINE 討論，我會根據你的情況提供最合適的方案。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">開戶流程要多久？可以線上辦理嗎？<span class="faq-arrow">+</span></button>
+      <div class="faq-a">目前大多數期貨商都支援全程線上開戶，只需準備身份證、第二證件、銀行帳戶，約 15–30 分鐘即可完成填寫。審核通過後通常 1–3 個工作天即可入金交易。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">期貨一定會賠錢嗎？有多少風險？<span class="faq-arrow">+</span></button>
+      <div class="faq-a">期貨具有槓桿特性，風險比一般股票高。但只要做好資金控管、設定停損、不過度交易，風險是可以管理的。我的工作就是幫助你了解風險，而不是叫你盲目交易。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">可以用哪些方式聯繫你？<span class="faq-arrow">+</span></button>
+      <div class="faq-a">最快的方式是加我的 LINE（ID：示範LINE），通常交易時段內都能快速回覆。也可以透過本頁面的表單留言，我會在一個工作天內與你聯繫。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────── CONTACT ──────── -->
+<section id="contact">
+  <div class="section-label fade-in">CONTACT</div>
+  <h2 class="section-title fade-in">聯繫我</h2>
+  <p class="section-desc fade-in">無論是想開戶、有問題想問，或只是想了解期貨，都歡迎聯繫我。</p>
+  <div class="contact-grid">
+    <div class="contact-info fade-in">
+      <div class="contact-item">
+        <span class="contact-icon">💬</span>
+        <div>
+          <div class="contact-label">LINE（最快）</div>
+          <div class="contact-val">ID：示範LINE</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">👤</span>
+        <div>
+          <div class="contact-label">營業員姓名</div>
+          <div class="contact-val">陳浩忠（阿忠）</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">🕐</span>
+        <div>
+          <div class="contact-label">服務時間</div>
+          <div class="contact-val">週一至週五 08:00–22:00</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">📍</span>
+        <div>
+          <div class="contact-label">服務地區</div>
+          <div class="contact-val">全台灣，線上服務為主</div>
+        </div>
+      </div>
+
+      <div class="disclaimer">
+        <strong>⚠ 風險告知</strong><br>
+        期貨交易具有高度風險，包括可能損失全部投入資金。本頁面僅作為業務介紹，不構成任何投資建議。請在充分了解商品特性與風險後，審慎評估是否適合您的財務狀況。
+      </div>
+    </div>
+
+    <div class="fade-in">
+      <form class="contact-form" onsubmit="submitForm(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>姓名 *</label>
+            <input type="text" placeholder="你的姓名" required>
+          </div>
+          <div class="form-group">
+            <label>聯絡電話</label>
+            <input type="tel" placeholder="09XX-XXX-XXX">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>LINE ID / Email</label>
+          <input type="text" placeholder="方便聯繫的方式">
+        </div>
+        <div class="form-group">
+          <label>投資經驗</label>
+          <select>
+            <option value="">請選擇</option>
+            <option>完全沒有經驗的新手</option>
+            <option>有買賣過股票</option>
+            <option>有期貨交易經驗</option>
+            <option>有豐富衍生品交易經驗</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>感興趣的商品</label>
+          <select>
+            <option value="">請選擇</option>
+            <option>台指期 / 小台</option>
+            <option>黃金期貨</option>
+            <option>海外指數期貨</option>
+            <option>原油期貨</option>
+            <option>其他 / 尚未確定</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>留言 / 想問的問題</label>
+          <textarea placeholder="有什麼想問的都可以說，我會盡快回覆你！"></textarea>
+        </div>
+        <button type="submit" class="form-submit">📩 送出諮詢</button>
+        <div id="form-success">✅ 已收到你的訊息！我會在一個工作天內與你聯繫，謝謝！</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ──────── FOOTER ──────── -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">陳浩忠（阿忠）期貨顧問</div>
+      <p class="footer-desc">專業期貨營業員，提供合法、透明、友善的開戶諮詢服務。從新手到老手，我都能陪你一起在期貨市場走下去。</p>
+    </div>
+    <div>
+      <div class="footer-heading">快速連結</div>
+      <ul class="footer-links">
+        <li><a href="#about">關於我</a></li>
+        <li><a href="#services">服務項目</a></li>
+        <li><a href="#products">可交易商品</a></li>
+        <li><a href="#articles">教學文章</a></li>
+        <li><a href="#faq">常見問題</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">聯繫</div>
+      <ul class="footer-links">
+        <li><a href="#contact">開戶諮詢表單</a></li>
+        <li><a href="#">LINE：示範LINE</a></li>
+        <li><a href="#">服務時間：週一–五</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 陳浩忠（阿忠）期貨顧問. All rights reserved.</span>
+    <span>期貨交易有風險，投資前請詳閱相關說明文件</span>
+  </div>
+</footer>
+
+<!-- ──────── LINE FLOAT ──────── -->
+<div class="line-float">
+  <a class="line-btn" href="https://line.me/ti/p/示範LINE" target="_blank" rel="noopener" aria-label="LINE聯繫阿忠">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.494.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+    </svg>
+  </a>
+  <div class="line-label">加LINE諮詢</div>
+</div>
+
+<!-- ──────── SCROLL TO TOP ──────── -->
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">↑</button>
+
+<script>
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+
+  // FAQ accordion
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Form submit
+  function submitForm(e) {
+    e.preventDefault();
+    document.getElementById('form-success').style.display = 'block';
+    e.target.reset();
+    setTimeout(() => document.getElementById('form-success').style.display = 'none', 6000);
+  }
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Scroll to top button
+  window.addEventListener('scroll', () => {
+    document.getElementById('scroll-top').classList.toggle('visible', window.scrollY > 400);
+  });
+
+  // Active nav link
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+    });
+  });
+</script>
+</body>
+</html>
