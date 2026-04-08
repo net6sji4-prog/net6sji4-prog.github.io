@@ -488,6 +488,102 @@
       .footer-grid { grid-template-columns: 1fr; }
       .hero-stats { gap: 1.5rem; }
     }
+
+    /* ── PROMO BANNER ── */
+    .promo-section {
+      background: linear-gradient(135deg, #1a1200, #2d1f00, #1a1200);
+      border-top: 1px solid rgba(201,168,76,0.4);
+      border-bottom: 1px solid rgba(201,168,76,0.4);
+      padding: 60px 5%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .promo-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(201,168,76,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .promo-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--dark);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      padding: 0.35rem 1.2rem;
+      border-radius: 2rem;
+      margin-bottom: 1.2rem;
+    }
+    .promo-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+    .promo-title span {
+      color: var(--gold);
+      font-size: clamp(2.8rem, 7vw, 4.8rem);
+      display: block;
+      text-shadow: 0 0 40px rgba(201,168,76,0.5);
+    }
+    .promo-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin: 1rem auto 2rem;
+      max-width: 500px;
+      line-height: 1.8;
+    }
+    .promo-steps {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin: 2rem auto 2.5rem;
+      max-width: 700px;
+      flex-wrap: wrap;
+    }
+    .promo-step {
+      flex: 1;
+      min-width: 160px;
+      padding: 1.2rem 1rem;
+      position: relative;
+    }
+    .promo-step::after {
+      content: '→';
+      position: absolute; right: -10px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--gold); font-size: 1.2rem;
+    }
+    .promo-step:last-child::after { display: none; }
+    .promo-step-num {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--dark); font-weight: 700; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 0.6rem;
+    }
+    .promo-step-text { font-size: 0.85rem; color: var(--text); font-weight: 500; }
+    .promo-step-sub { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem; }
+    .promo-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 1.5rem;
+      opacity: 0.7;
+    }
+    .promo-coins {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.08;
+      user-select: none;
+      pointer-events: none;
+    }
+    @keyframes float-coin {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(15deg); }
+    }
   </style>
 </head>
 <body>
@@ -496,6 +592,7 @@
 <nav>
   <a class="nav-logo" href="#">陳浩忠｜期貨顧問</a>
   <ul class="nav-links">
+    <li><a href="#promo" style="color:var(--gold)">🎁 開戶送888</a></li>
     <li><a href="#about">關於我</a></li>
     <li><a href="#services">服務項目</a></li>
     <li><a href="#products">商品介紹</a></li>
@@ -611,6 +708,54 @@
   </div>
 </section>
 
+
+<!-- ──────── PROMO ──────── -->
+<section class="promo-section" id="promo">
+  <span class="promo-coins" style="top:10%;left:5%;animation:float-coin 4s ease-in-out infinite">🪙</span>
+  <span class="promo-coins" style="top:20%;right:8%;animation:float-coin 5s ease-in-out infinite 1s">💰</span>
+  <span class="promo-coins" style="bottom:15%;left:12%;animation:float-coin 6s ease-in-out infinite 0.5s">🪙</span>
+  <span class="promo-coins" style="bottom:20%;right:5%;animation:float-coin 4.5s ease-in-out infinite 1.5s">💰</span>
+
+  <div style="position:relative;z-index:1">
+    <div class="promo-badge">🎁 限時開戶優惠</div>
+    <div class="promo-title">
+      新戶開戶即送
+      <span>$ 888</span>
+      開戶禮金
+    </div>
+    <p class="promo-desc">現在透過阿忠完成開戶並入金，即可獲得 <strong style="color:var(--gold)">NT$888 開戶禮金</strong>，讓你交易的第一步就領先一步！名額有限，手慢則無。</p>
+
+    <div class="promo-steps fade-in">
+      <div class="promo-step">
+        <div class="promo-step-num">1</div>
+        <div class="promo-step-text">加阿忠 LINE</div>
+        <div class="promo-step-sub">ID：aa53991</div>
+      </div>
+      <div class="promo-step">
+        <div class="promo-step-num">2</div>
+        <div class="promo-step-text">完成開戶</div>
+        <div class="promo-step-sub">線上即可辦理</div>
+      </div>
+      <div class="promo-step">
+        <div class="promo-step-num">3</div>
+        <div class="promo-step-text">完成入金</div>
+        <div class="promo-step-sub">審核後入金</div>
+      </div>
+      <div class="promo-step">
+        <div class="promo-step-num">4</div>
+        <div class="promo-step-text">領取 $888</div>
+        <div class="promo-step-sub">禮金自動入帳</div>
+      </div>
+    </div>
+
+    <a href="#contact" class="btn-primary" style="font-size:1rem;padding:1rem 2.5rem;display:inline-block">
+      🎁 立即申請開戶領 $888
+    </a>
+
+    <p class="promo-note">※ 本活動限新開戶客戶，每人限領一次。活動細節及資格請洽阿忠確認。</p>
+  </div>
+</section>
+
 <!-- ──────── SERVICES ──────── -->
 <section id="services">
   <div class="section-label fade-in">SERVICES</div>
@@ -665,42 +810,42 @@
     <div class="product-card fade-in">
       <span class="product-icon">🇹🇼</span>
       <div class="product-name">台指期（TX）</div>
-      <div class="product-sub">台灣加權指數期貨</div>
+      <div class="product-sub">台灣加權指數期貨，主力商品</div>
     </div>
     <div class="product-card fade-in">
-      <span class="product-icon">📉</span>
+      <span class="product-icon">📊</span>
       <div class="product-name">小台指（MTX）</div>
-      <div class="product-sub">適合小資族入門</div>
+      <div class="product-sub">小資族入門首選，保證金低</div>
     </div>
     <div class="product-card fade-in">
-      <span class="product-icon">💛</span>
-      <div class="product-name">黃金期貨</div>
-      <div class="product-sub">國際黃金避險工具</div>
+      <span class="product-icon">🌐</span>
+      <div class="product-name">台指全（TXO）</div>
+      <div class="product-sub">台灣加權指數選擇權</div>
     </div>
     <div class="product-card fade-in">
-      <span class="product-icon">🛢️</span>
-      <div class="product-name">原油期貨</div>
-      <div class="product-sub">WTI / Brent 輕原油</div>
+      <span class="product-icon">🛣️</span>
+      <div class="product-name">小道瓊（YM）</div>
+      <div class="product-sub">美國道瓊工業指數期貨</div>
     </div>
     <div class="product-card fade-in">
       <span class="product-icon">🇺🇸</span>
-      <div class="product-name">美股指期貨</div>
-      <div class="product-sub">S&P 500 / 那斯達克</div>
+      <div class="product-name">小那斯達克（NQ）</div>
+      <div class="product-sub">科技股指數，波動活躍</div>
     </div>
     <div class="product-card fade-in">
-      <span class="product-icon">🌾</span>
-      <div class="product-name">農產品期貨</div>
-      <div class="product-sub">黃豆、玉米、小麥</div>
+      <span class="product-icon">💛</span>
+      <div class="product-name">黃金期貨（GC）</div>
+      <div class="product-sub">國際黃金，避險首選</div>
     </div>
     <div class="product-card fade-in">
-      <span class="product-icon">💴</span>
-      <div class="product-name">外匯期貨</div>
-      <div class="product-sub">美元、日圓、歐元</div>
+      <span class="product-icon">🪨</span>
+      <div class="product-name">石油期貨（CL）</div>
+      <div class="product-sub">WTI 輕原油，波動大</div>
     </div>
     <div class="product-card fade-in">
-      <span class="product-icon">₿</span>
-      <div class="product-name">加密貨幣期貨</div>
-      <div class="product-sub">比特幣、以太坊</div>
+      <span class="product-icon">🥈</span>
+      <div class="product-name">白銀期貨（SI）</div>
+      <div class="product-sub">貴金屬，與黃金連動</div>
     </div>
   </div>
 </section>
@@ -803,7 +948,7 @@
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">可以用哪些方式聯繫你？<span class="faq-arrow">+</span></button>
-      <div class="faq-a">最快的方式是加我的 LINE（ID：示範LINE），通常交易時段內都能快速回覆。也可以透過本頁面的表單留言，我會在一個工作天內與你聯繫。</div>
+      <div class="faq-a">最快的方式是加我的 LINE（ID：aa53991），通常交易時段內都能快速回覆。也可以透過本頁面的表單留言，我會在一個工作天內與你聯繫。</div>
     </div>
   </div>
 </section>
@@ -819,7 +964,7 @@
         <span class="contact-icon">💬</span>
         <div>
           <div class="contact-label">LINE（最快）</div>
-          <div class="contact-val">ID：示範LINE</div>
+          <div class="contact-val">ID：aa53991</div>
         </div>
       </div>
       <div class="contact-item">
@@ -908,7 +1053,8 @@
     <div>
       <div class="footer-heading">快速連結</div>
       <ul class="footer-links">
-        <li><a href="#about">關於我</a></li>
+        <li><a href="#promo" style="color:var(--gold)">🎁 開戶送888</a></li>
+    <li><a href="#about">關於我</a></li>
         <li><a href="#services">服務項目</a></li>
         <li><a href="#products">可交易商品</a></li>
         <li><a href="#articles">教學文章</a></li>
@@ -919,7 +1065,7 @@
       <div class="footer-heading">聯繫</div>
       <ul class="footer-links">
         <li><a href="#contact">開戶諮詢表單</a></li>
-        <li><a href="#">LINE：示範LINE</a></li>
+        <li><a href="#">LINE：aa53991</a></li>
         <li><a href="#">服務時間：週一–五</a></li>
       </ul>
     </div>
@@ -932,7 +1078,7 @@
 
 <!-- ──────── LINE FLOAT ──────── -->
 <div class="line-float">
-  <a class="line-btn" href="https://line.me/ti/p/示範LINE" target="_blank" rel="noopener" aria-label="LINE聯繫阿忠">
+  <a class="line-btn" href="https://line.me/ti/p/aa53991" target="_blank" rel="noopener" aria-label="LINE聯繫阿忠">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.494.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
     </svg>
