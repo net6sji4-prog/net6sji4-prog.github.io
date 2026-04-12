@@ -691,6 +691,74 @@
       .promo-float-label, .promo-float-sub { font-size: 0.62rem; }
       .promo-float-btn { font-size: 0.62rem; padding: 0.3rem 0.5rem; }
     }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { background: var(--dark3); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .testimonial-card {
+      background: var(--dark4);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.8rem;
+      position: relative;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .testimonial-card:hover { transform: translateY(-3px); border-color: rgba(201,168,76,0.4); }
+    .testimonial-quote {
+      font-size: 3rem; line-height: 1;
+      color: var(--gold); opacity: 0.3;
+      font-family: var(--serif);
+      margin-bottom: 0.5rem;
+    }
+    .testimonial-text {
+      font-size: 0.92rem; color: var(--text);
+      line-height: 1.8; margin-bottom: 1.2rem;
+      font-style: italic;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 0.8rem; }
+    .testimonial-avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; color: var(--dark); font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .testimonial-name { font-weight: 600; color: #fff; font-size: 0.88rem; }
+    .testimonial-meta { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.1rem; }
+    .testimonial-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 0.8rem; }
+
+    /* ── NEWS ── */
+    #news { background: var(--dark2); }
+    .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.2rem; }
+    .news-card {
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 1.2rem 1.5rem;
+      display: flex; gap: 1.2rem; align-items: flex-start;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .news-card:hover { transform: translateX(4px); box-shadow: 4px 0 20px rgba(201,168,76,0.1); }
+    .news-date {
+      background: rgba(201,168,76,0.1);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.5rem 0.7rem;
+      text-align: center;
+      flex-shrink: 0; min-width: 52px;
+    }
+    .news-date-day { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; color: var(--gold); line-height: 1; }
+    .news-date-month { font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem; }
+    .news-tag {
+      display: inline-block;
+      font-size: 0.7rem; color: var(--gold);
+      background: rgba(201,168,76,0.1);
+      padding: 0.15rem 0.6rem; border-radius: 2rem;
+      margin-bottom: 0.4rem; letter-spacing: 0.05em;
+    }
+    .news-title { font-weight: 600; color: #fff; font-size: 0.92rem; line-height: 1.4; margin-bottom: 0.4rem; }
+    .news-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
   </style>
 </head>
 <body>
@@ -704,6 +772,7 @@
     <li><a href="#services">服務項目</a></li>
     <li><a href="#products">商品介紹</a></li>
     <li><a href="#articles">教學文章</a></li>
+    <li><a href="#news">最新消息</a></li>
     <li><a href="#faq">常見問題</a></li>
     <li><a href="#contact">聯繫我</a></li>
   </ul>
@@ -1027,6 +1096,117 @@
   </div>
 </section>
 
+
+<!-- ──────── TESTIMONIALS ──────── -->
+<section id="testimonials">
+  <div class="section-label fade-in">TESTIMONIALS</div>
+  <h2 class="section-title fade-in">客戶真實心得</h2>
+  <p class="section-desc fade-in">每一位客戶的信任，都是我最大的動力。</p>
+  <div class="testimonials-grid">
+    <div class="testimonial-card fade-in">
+      <div class="testimonial-quote">"</div>
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-text">剛開始完全不懂期貨，阿忠很有耐心從基礎教起，開戶流程也超快，線上10分鐘就搞定了。手續費比我之前用的還便宜，真的很推薦！</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">王</div>
+        <div>
+          <div class="testimonial-name">王先生</div>
+          <div class="testimonial-meta">新手投資人・台中</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-in">
+      <div class="testimonial-quote">"</div>
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-text">做台指期好幾年了，換到阿忠這邊手續費省很多，而且每次有問題LINE問他都很快回覆，感覺不是只想賺開戶費，真的有在幫你。</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">陳</div>
+        <div>
+          <div class="testimonial-name">陳小姐</div>
+          <div class="testimonial-meta">交易3年・高雄</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-in">
+      <div class="testimonial-quote">"</div>
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-text">朋友介紹的，本來只是想了解海外期貨，阿忠解釋得很清楚，沒有硬推銷的感覺。後來開了帳戶做小道瓊，服務品質真的沒話說。</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">林</div>
+        <div>
+          <div class="testimonial-name">林先生</div>
+          <div class="testimonial-meta">海外期貨・台北</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-in">
+      <div class="testimonial-quote">"</div>
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-text">之前在別家手續費貴又常滑價，朋友推薦來這邊之後差很多，1點打平真的有感。阿忠也會分享一些盤勢看法，很有參考價值。</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">張</div>
+        <div>
+          <div class="testimonial-name">張先生</div>
+          <div class="testimonial-meta">台指期交易者・新竹</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────── NEWS ──────── -->
+<section id="news">
+  <div class="section-label fade-in">LATEST NEWS</div>
+  <h2 class="section-title fade-in">最新消息 &amp; 市場短評</h2>
+  <p class="section-desc fade-in">定期更新市場動態，掌握最新交易機會。</p>
+  <div class="news-grid">
+    <div class="news-card fade-in">
+      <div class="news-date">
+        <div class="news-date-day">08</div>
+        <div class="news-date-month">APR 2026</div>
+      </div>
+      <div>
+        <div class="news-tag">市場短評</div>
+        <div class="news-title">台指期本週走勢分析：關鍵支撐在哪裡？</div>
+        <div class="news-desc">本週大盤受外資動向影響波動加大，台指期日盤量能持續縮減，短線注意22,000點支撐是否守住。</div>
+      </div>
+    </div>
+    <div class="news-card fade-in">
+      <div class="news-date">
+        <div class="news-date-day">05</div>
+        <div class="news-date-month">APR 2026</div>
+      </div>
+      <div>
+        <div class="news-tag">開戶優惠</div>
+        <div class="news-title">🎁 新戶開戶送 $888 禮金活動持續進行中！</div>
+        <div class="news-desc">即日起新開戶客戶完成入金即可領取 NT$888 開戶禮金，名額有限，把握機會！</div>
+      </div>
+    </div>
+    <div class="news-card fade-in">
+      <div class="news-date">
+        <div class="news-date-day">01</div>
+        <div class="news-date-month">APR 2026</div>
+      </div>
+      <div>
+        <div class="news-tag">教學資訊</div>
+        <div class="news-title">黃金期貨創歷史新高！現在還能進場嗎？</div>
+        <div class="news-desc">國際黃金價格持續走強，避險需求旺盛。想透過期貨參與行情的投資人，歡迎加LINE詢問操作策略。</div>
+      </div>
+    </div>
+    <div class="news-card fade-in">
+      <div class="news-date">
+        <div class="news-date-day">28</div>
+        <div class="news-date-month">MAR 2026</div>
+      </div>
+      <div>
+        <div class="news-tag">小台指</div>
+        <div class="news-title">小台指入門攻略：小資族如何用低保證金參與台股</div>
+        <div class="news-desc">小台指保證金門檻低，適合剛接觸期貨的新手。想了解如何用小台指對沖股票風險，歡迎諮詢。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ──────── FAQ ──────── -->
 <section id="faq" style="background:var(--dark2)">
   <div class="section-label fade-in">FAQ</div>
@@ -1165,6 +1345,7 @@
         <li><a href="#services">服務項目</a></li>
         <li><a href="#products">可交易商品</a></li>
         <li><a href="#articles">教學文章</a></li>
+    <li><a href="#news">最新消息</a></li>
         <li><a href="#faq">常見問題</a></li>
       </ul>
     </div>
