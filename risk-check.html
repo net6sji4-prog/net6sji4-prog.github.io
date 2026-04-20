@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台指期實戰風控邏輯自我檢測儀｜阿忠期貨</title>
+<meta name="description" content="31年期貨實戰資歷設計的12道風控診斷題，找出你的交易弱點。阿忠期貨陳浩忠，專注台指期教育與客戶服務。">
+<meta property="og:title" content="台指期實戰風控邏輯自我檢測儀｜阿忠期貨">
+<meta property="og:description" content="12道關鍵題目，源自31年實盤見過的真實崩帳模式，看清你的風控缺口在哪裡。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8CC80;
+    --gold-dim: #7A6030;
+    --ink: #1A1710;
+    --ink-soft: #2E2B22;
+    --paper: #F7F3EC;
+    --paper-warm: #EDE8DE;
+    --paper-mid: #DDD8CC;
+    --muted: #6B6655;
+    --muted-light: #9A9480;
+    --danger: #8B3A3A;
+    --warn: #7A5A1A;
+    --ok: #2A5C3A;
+    --info: #1D4A72;
+    --radius: 4px;
+    --radius-lg: 8px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+    line-height: 1.7;
+  }
+
+  /* Background texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(180,165,130,0.08) 39px, rgba(180,165,130,0.08) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(180,165,130,0.05) 39px, rgba(180,165,130,0.05) 40px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 16px;
+    border-bottom: 1px solid var(--paper-mid);
+    margin-bottom: 48px;
+  }
+  .brand {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--gold-dim);
+    letter-spacing: .12em;
+    text-decoration: none;
+  }
+  .brand span { color: var(--ink); }
+  .header-cta {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: .06em;
+    border: 1px solid var(--paper-mid);
+    border-radius: 20px;
+    padding: 5px 14px;
+    text-decoration: none;
+    transition: all .2s;
+  }
+  .header-cta:hover { border-color: var(--gold-dim); color: var(--gold-dim); }
+
+  /* ── HERO ── */
+  .hero {
+    text-align: center;
+    padding: 0 0 48px;
+    border-bottom: 1px solid var(--paper-mid);
+    margin-bottom: 48px;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    letter-spacing: .15em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero-eyebrow::before,
+  .hero-eyebrow::after {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+    opacity: .5;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(26px, 5vw, 36px);
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 16px;
+    letter-spacing: .04em;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold-dim);
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 2px;
+  }
+  .hero-sub {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 480px;
+    margin: 0 auto 28px;
+    line-height: 1.75;
+  }
+  .hero-meta {
+    display: inline-flex;
+    gap: 24px;
+    font-size: 12px;
+    color: var(--muted-light);
+    letter-spacing: .04em;
+  }
+  .hero-meta span::before { content: '◆ '; font-size: 8px; }
+
+  /* ── PROGRESS ── */
+  .progress-section {
+    margin-bottom: 32px;
+  }
+  .progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+  }
+  .progress-title {
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted-light);
+  }
+  .progress-count {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 13px;
+    color: var(--gold-dim);
+  }
+  .progress-track {
+    height: 2px;
+    background: var(--paper-mid);
+    border-radius: 1px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold-dim), var(--gold));
+    border-radius: 1px;
+    transition: width .5s cubic-bezier(.4,0,.2,1);
+    width: 0%;
+  }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted-light);
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--paper-mid);
+  }
+  .section-tag {
+    background: var(--paper-warm);
+    border: 1px solid var(--paper-mid);
+    border-radius: 2px;
+    padding: 3px 10px;
+    font-size: 10px;
+    letter-spacing: .1em;
+    color: var(--gold-dim);
+  }
+
+  /* ── QUESTION CARD ── */
+  .q-card {
+    background: #FFFFFF;
+    border: 1px solid var(--paper-mid);
+    border-radius: var(--radius-lg);
+    padding: 28px 32px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.04);
+    animation: fadeUp .3s ease;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .q-number {
+    font-size: 10px;
+    letter-spacing: .1em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .q-text {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.55;
+    margin-bottom: 10px;
+  }
+  .q-note {
+    font-size: 12px;
+    color: var(--muted-light);
+    font-style: italic;
+    line-height: 1.6;
+    padding: 10px 14px;
+    background: var(--paper);
+    border-left: 2px solid var(--gold);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    margin-bottom: 20px;
+  }
+  .q-note::before { content: '老手提醒：'; color: var(--gold-dim); font-style: normal; font-weight: 500; }
+
+  /* ── OPTIONS ── */
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .opt {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--paper);
+    border: 1px solid var(--paper-mid);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all .2s;
+    text-align: left;
+    width: 100%;
+    font-family: inherit;
+  }
+  .opt:hover {
+    background: var(--paper-warm);
+    border-color: var(--gold-dim);
+  }
+  .opt.selected {
+    background: #FBF6EC;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 1px var(--gold);
+  }
+  .opt-marker {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid var(--paper-mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+    transition: all .2s;
+    font-size: 9px;
+    color: transparent;
+  }
+  .opt.selected .opt-marker {
+    background: var(--gold-dim);
+    border-color: var(--gold-dim);
+    color: #fff;
+  }
+  .opt-text { font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
+  .opt.selected .opt-text { color: var(--ink); font-weight: 500; }
+
+  /* ── NAV ── */
+  .nav-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+  }
+  .nav-hint { font-size: 12px; color: var(--muted-light); }
+  .btn-next {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--paper);
+    background: var(--ink);
+    border: none;
+    border-radius: var(--radius);
+    padding: 12px 32px;
+    cursor: pointer;
+    letter-spacing: .06em;
+    transition: all .2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-next:hover { background: var(--ink-soft); }
+  .btn-next:disabled {
+    background: var(--paper-mid);
+    color: var(--muted-light);
+    cursor: not-allowed;
+  }
+  .btn-next .arrow { transition: transform .2s; }
+  .btn-next:not(:disabled):hover .arrow { transform: translateX(4px); }
+
+  /* ── RESULT ── */
+  .result-wrap { animation: fadeUp .4s ease; }
+
+  .score-hero {
+    text-align: center;
+    padding: 40px 24px;
+    background: var(--ink);
+    border-radius: var(--radius-lg);
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .score-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 120%, rgba(201,168,76,.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .score-eyebrow {
+    font-size: 11px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 12px;
+  }
+  .score-number {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 72px;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .score-max { font-size: 18px; color: rgba(201,168,76,.5); }
+  .score-grade {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 12px 0 8px;
+    color: #fff;
+  }
+  .score-summary {
+    font-size: 14px;
+    color: rgba(255,255,255,.6);
+    max-width: 420px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .dim-section { margin-bottom: 24px; }
+  .dim-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .dim-card {
+    background: #fff;
+    border: 1px solid var(--paper-mid);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+  }
+  .dim-name { font-size: 11px; letter-spacing: .08em; color: var(--muted); margin-bottom: 10px; }
+  .dim-track {
+    height: 3px;
+    background: var(--paper-mid);
+    border-radius: 2px;
+    margin-bottom: 8px;
+    overflow: hidden;
+  }
+  .dim-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width .8s cubic-bezier(.4,0,.2,1) .2s;
+    width: 0%;
+  }
+  .dim-val {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .dim-total { font-size: 12px; color: var(--muted-light); }
+
+  .insights-section { margin-bottom: 28px; }
+  .insight {
+    display: flex;
+    gap: 14px;
+    padding: 16px 18px;
+    background: #fff;
+    border: 1px solid var(--paper-mid);
+    border-radius: var(--radius);
+    margin-bottom: 10px;
+  }
+  .insight-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    margin-top: 2px;
+  }
+  .insight.warn .insight-icon { background: #FFF3E0; color: var(--warn); }
+  .insight.ok   .insight-icon { background: #E8F5E9; color: var(--ok); }
+  .insight h4 { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
+  .insight p  { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* ── CTA ── */
+  .cta-block {
+    background: var(--ink);
+    border-radius: var(--radius-lg);
+    padding: 36px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-block::before {
+    content: '';
+    position: absolute;
+    top: -60px; left: 50%;
+    transform: translateX(-50%);
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .cta-divider::before, .cta-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,.1);
+  }
+  .cta-divider span {
+    font-size: 11px;
+    letter-spacing: .15em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+  }
+  .cta-name {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 6px;
+    letter-spacing: .06em;
+  }
+  .cta-title {
+    font-size: 13px;
+    color: rgba(255,255,255,.5);
+    margin-bottom: 20px;
+    letter-spacing: .04em;
+  }
+  .cta-points {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+  .cta-point {
+    font-size: 12px;
+    color: rgba(255,255,255,.55);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .cta-point::before { content: '◆'; font-size: 7px; color: var(--gold-dim); }
+  .cta-btns {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold-dim);
+    color: #fff;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 13px 28px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    letter-spacing: .06em;
+    transition: all .2s;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--gold); }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: rgba(255,255,255,.8);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 13px 28px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    letter-spacing: .06em;
+    transition: all .2s;
+    border: 1px solid rgba(255,255,255,.2);
+    cursor: pointer;
+  }
+  .btn-secondary:hover { border-color: rgba(255,255,255,.4); color: #fff; }
+  .line-icon { font-size: 16px; }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--paper-mid);
+    text-align: center;
+    font-size: 11px;
+    color: var(--muted-light);
+    line-height: 1.8;
+    letter-spacing: .04em;
+  }
+
+  /* ── HIDDEN SECTIONS ── */
+  .q-section { display: none; }
+  .q-section.active { display: block; }
+  .result-section { display: none; }
+  .result-section.active { display: block; }
+
+  @media (max-width: 520px) {
+    .q-card { padding: 20px 18px; }
+    .cta-block { padding: 28px 20px; }
+    .dim-grid { grid-template-columns: 1fr 1fr; }
+    .hero h1 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="site-header">
+    <a class="brand" href="https://net6sji4-prog.github.io">阿忠<span>期貨</span></a>
+    <a class="header-cta" href="https://line.me/ti/p/aa53991">加 LINE 諮詢</a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-eyebrow">阿忠期貨 · 陳浩忠 · 1993年入行</div>
+    <h1>台指期實戰<br><em>風控邏輯</em>自我檢測儀</h1>
+    <p class="hero-sub">12 道關鍵題目，源自 31 年實盤見過的<br>真實崩帳模式，找出你交易邏輯的缺口在哪裡</p>
+    <div class="hero-meta">
+      <span>12 道診斷題</span>
+      <span>三大維度評估</span>
+      <span>個人化分析報告</span>
+    </div>
+  </section>
+
+  <div class="progress-section">
+    <div class="progress-header">
+      <span class="progress-title" id="sectionName">第一部分：資金管理邏輯</span>
+      <span class="progress-count" id="progCount">0 / 12</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progFill"></div>
+    </div>
+  </div>
+
+  <!-- Section A -->
+  <div class="q-section active" id="secA">
+    <div class="section-label"><span class="section-tag">A</span>資金管理邏輯</div>
+  </div>
+  <!-- Section B -->
+  <div class="q-section" id="secB">
+    <div class="section-label"><span class="section-tag">B</span>交易心理強度</div>
+  </div>
+  <!-- Section C -->
+  <div class="q-section" id="secC">
+    <div class="section-label"><span class="section-tag">C</span>實戰應變能力</div>
+  </div>
+  <!-- Result -->
+  <div class="result-section" id="secResult"></div>
+
+  <div class="nav-row" id="navRow">
+    <span class="nav-hint" id="navHint">請選擇最符合你實際狀況的答案</span>
+    <button class="btn-next" id="btnNext" disabled>
+      下一題 <span class="arrow">→</span>
+    </button>
+  </div>
+
+</div><!-- .page -->
+
+<footer class="site-footer">
+  <div class="page">
+    阿忠期貨 · 陳浩忠 · LINE ID：aa53991<br>
+    本工具診斷結果僅供參考，期貨交易具有風險，請審慎評估。<br>
+    © 2026 阿忠期貨 · All rights reserved
+  </div>
+</footer>
+
+<script>
+const Q=[
+  {sec:'A',id:'a1',
+   text:'您目前的單筆交易（大台 TX）最大虧損上限設定在多少點？',
+   note:'沒有明確停損點，就是把生殺大權交給市場決定。',
+   opts:['我沒有固定停損，看盤況決定','50 點以內（約 1 萬元）','100–150 點（2–3 萬元）','200 點以上，資金夠就撐著']},
+  {sec:'A',id:'a2',
+   text:'您的帳戶目前投入期貨的資金，佔總可投資資產的比例大約是？',
+   note:'超過 50% 放期貨的人，情緒決策比例明顯偏高。',
+   opts:['超過 70%','50–70%','30–50% 以內','30% 以下，其餘閒置或配置股票']},
+  {sec:'A',id:'a3',
+   text:'連續虧損 3 天之後，您通常會如何調整倉位大小？',
+   note:'這題沒有標準答案，但老手一眼就能看出你的風控成熟度。',
+   opts:['加大部位，想把虧損追回來','維持相同部位，繼續做','縮小至平常的一半以下','直接暫停交易，冷靜複盤']},
+  {sec:'A',id:'a4',
+   text:'對於「結算日行情」您通常如何處理？',
+   note:'每月結算週是籌碼最複雜的時段，老手的應對方式截然不同。',
+   opts:['正常交易，跟平常一樣','提前布局賭結算方向','縮小部位或避開結算週','依選擇權未平倉量判斷再決定']},
+  {sec:'B',id:'b1',
+   text:'盤中持有部位，指數突然急拉/急跌超過 200 點，您的第一反應是？',
+   note:'這一瞬間的反應，往往決定一天的盈虧。',
+   opts:['立刻加碼順勢','猶豫，觀望一下再說','立刻按照預定計畫執行','恐慌或亢奮，忘記計畫']},
+  {sec:'B',id:'b2',
+   text:'您上一次因為「不甘心」而繼續持有虧損部位，是多久前的事？',
+   note:'老手稱這叫「希望交易」——最昂貴的交易習慣之一。',
+   opts:['上週或更近','上個月內','半年以上沒發生','我幾乎不會這樣做']},
+  {sec:'B',id:'b3',
+   text:'每天收盤後，您是否有固定的「盤後複盤」習慣？',
+   note:'沒有複盤，等於每天都在用直覺交易，不在累積經驗。',
+   opts:['從來不做','偶爾做，心情好才做','大多數時候會做','每天固定，有紀錄與檢討']},
+  {sec:'B',id:'b4',
+   text:'遇到重大外部事件（如美聯準會宣布、地緣政治升溫），您的處置策略是？',
+   note:'2026年4月美伊談判破裂、台積電法說會等多重事件疊加，就是典型考驗。',
+   opts:['不管，繼續正常交易','先平倉，等事件明朗再進場','縮小部位並設好停損再觀望','完全沒有預設方案，走一步算一步']},
+  {sec:'C',id:'c1',
+   text:'您通常如何判斷「正逆價差」對當日操作方向的意義？',
+   note:'從逆價差的出現到消失，背後是籌碼力量的移動，老手能看懂這個訊號。',
+   opts:['我不看價差，直接看 K 線','只知道正差偏多、逆差偏空，沒深入運用','會搭配外資期貨淨部位一起判斷','整合法人籌碼、選擇權 OI 一起分析']},
+  {sec:'C',id:'c2',
+   text:'台指期出現「高檔震盪、量縮」的盤面，您傾向如何操作？',
+   note:'這種盤型最容易讓交易者頻繁進出、被反覆洗掉。',
+   opts:['照常做，不管盤型','加大頻率，短進短出','縮小部位，等待方向確立','空手觀望，這種盤型我選擇不做']},
+  {sec:'C',id:'c3',
+   text:'您的停利邏輯是什麼？',
+   note:'大多數人的停損比停利更有紀律，這是虧損的根源之一。',
+   opts:['覺得差不多賺夠了就出場','看到 K 線翻空才出','預設目標點數，到了就出','依據市場結構動態調整，沒有固定公式']},
+  {sec:'C',id:'c4',
+   text:'您的主要資訊來源是什麼？',
+   note:'在 AI 訊號氾濫的時代，資訊篩選能力就是競爭優勢。',
+   opts:['Telegram 群組 / LINE 群的訊號','財經新聞、網路討論文章','法人籌碼數據 + 技術面自行判斷','以上綜合，加上有經驗的營業員輔助']},
+];
+
+const SCORES={
+  a1:[0,3,2,1], a2:[0,1,2,3], a3:[0,1,3,2], a4:[1,0,2,3],
+  b1:[1,1,3,0], b2:[0,1,2,3], b3:[0,1,2,3], b4:[0,2,2,1],
+  c1:[0,1,2,3], c2:[1,0,2,2], c3:[0,1,2,3], c4:[0,1,2,3],
+};
+
+let answers={}, cur=0;
+const secNames=['第一部分：資金管理邏輯','第二部分：交易心理強度','第三部分：實戰應變能力'];
+const secKeys=['A','B','C'];
+
+function render(){
+  if(cur>=Q.length){ showResult(); return; }
+  const q=Q[cur];
+  const secEl=document.getElementById('sec'+q.sec);
+
+  // Switch active section
+  document.querySelectorAll('.q-section').forEach(s=>s.classList.remove('active'));
+  secEl.classList.add('active');
+
+  // Rebuild section content (keep label)
+  const label=secEl.querySelector('.section-label').outerHTML;
+  secEl.innerHTML=label;
+
+  const card=document.createElement('div');
+  card.className='q-card';
+  card.innerHTML=`
+    <div class="q-number">第 ${cur+1} 題 / 共 12 題</div>
+    <div class="q-text">${q.text}</div>
+    <div class="q-note">${q.note}</div>
+    <div class="options" id="opts"></div>`;
+  secEl.appendChild(card);
+
+  const og=card.querySelector('#opts');
+  q.opts.forEach((o,i)=>{
+    const btn=document.createElement('button');
+    btn.className='opt'+(answers[q.id]===i?' selected':'');
+    btn.innerHTML=`<span class="opt-marker">${answers[q.id]===i?'✓':''}</span><span class="opt-text">${o}</span>`;
+    btn.onclick=()=>{
+      answers[q.id]=i;
+      og.querySelectorAll('.opt').forEach((b,j)=>{
+        b.classList.toggle('selected',j===i);
+        b.querySelector('.opt-marker').textContent=j===i?'✓':'';
+      });
+      document.getElementById('btnNext').disabled=false;
+      document.getElementById('navHint').textContent='';
+    };
+    og.appendChild(btn);
+  });
+
+  document.getElementById('sectionName').textContent=secNames[secKeys.indexOf(q.sec)];
+  document.getElementById('btnNext').disabled=answers[q.id]===undefined;
+  document.getElementById('navHint').textContent=answers[q.id]!==undefined?'':'請選擇最符合你實際狀況的答案';
+  updateProgress();
+}
+
+function updateProgress(){
+  const done=Object.keys(answers).length;
+  document.getElementById('progFill').style.width=(done/12*100)+'%';
+  document.getElementById('progCount').textContent=done+' / 12';
+}
+
+function showResult(){
+  document.querySelectorAll('.q-section').forEach(s=>s.classList.remove('active'));
+  const resEl=document.getElementById('secResult');
+  resEl.classList.add('active');
+  document.getElementById('navRow').style.display='none';
+  document.getElementById('progFill').style.width='100%';
+  document.getElementById('progCount').textContent='12 / 12';
+  document.getElementById('sectionName').textContent='診斷完成';
+
+  let tA=0,tB=0,tC=0;
+  ['a1','a2','a3','a4'].forEach(k=>{if(answers[k]!=null)tA+=SCORES[k][answers[k]]});
+  ['b1','b2','b3','b4'].forEach(k=>{if(answers[k]!=null)tB+=SCORES[k][answers[k]]});
+  ['c1','c2','c3','c4'].forEach(k=>{if(answers[k]!=null)tC+=SCORES[k][answers[k]]});
+  const total=tA+tB+tC;
+  const pct=Math.round(total/36*100);
+
+  let grade,gradeColor,summary;
+  if(pct>=80){
+    grade='風控意識成熟';gradeColor='#5A9B6A';
+    summary='你已建立相對完整的交易紀律，但市場永遠有下一個考驗。資深輔助能幫你在關鍵時刻做出更精準的判斷。';
+  } else if(pct>=60){
+    grade='有基礎，有可見盲點';gradeColor='#C9A84C';
+    summary='你掌握了部分正確觀念，但在心理或應變面仍有缺口，這些缺口在波動加大時會被成倍放大。';
+  } else if(pct>=40){
+    grade='需要系統性強化';gradeColor='#C07A28';
+    summary='幾個關鍵習慣尚未建立，在高波動盤型（如目前台指期高檔震盪區）中，風險將顯著上升。';
+  } else {
+    grade='警示：高風險交易型態';gradeColor='#B05050';
+    summary='目前的交易方式具有明顯的崩帳風險特徵。強烈建議在優化風控框架前，大幅縮減部位規模。';
+  }
+
+  let insights='';
+  if(answers.a1===0||answers.a1===3)
+    insights+=`<div class="insight warn"><div class="insight-icon">⚠</div><div><h4>停損機制缺乏明確化</h4><p>31年見過太多「撐過去就好了」的帳戶最終爆倉。沒有停損點，不是膽量大，是把命運交給隨機性。</p></div></div>`;
+  if(answers.a3===0)
+    insights+=`<div class="insight warn"><div class="insight-icon">⚠</div><div><h4>逆境加碼是崩帳的高速公路</h4><p>連虧後加碼，背後是情緒，不是邏輯。市場不在乎你想追回多少，它只看你的部位大小。</p></div></div>`;
+  if(answers.b2===0||answers.b2===1)
+    insights+=`<div class="insight warn"><div class="insight-icon">⚠</div><div><h4>「不甘心」情緒仍在影響決策</h4><p>希望交易是帳戶的慢性病。老手的第一守則：虧損不是敵人，抱著虧損不放才是。</p></div></div>`;
+  if(answers.b3===0||answers.b3===1)
+    insights+=`<div class="insight warn"><div class="insight-icon">⚠</div><div><h4>缺乏複盤習慣</h4><p>沒有複盤，等於每天都在重複相同的錯誤，只是自己不知道而已。</p></div></div>`;
+  if(answers.c1===3||answers.c4===3)
+    insights+=`<div class="insight ok"><div class="insight-icon">✓</div><div><h4>資訊整合能力佳</h4><p>能綜合多元資訊並借助有經驗的輔助者判斷，是老手才有的習慣。這是長期存活的核心能力之一。</p></div></div>`;
+  if(answers.a4===3)
+    insights+=`<div class="insight ok"><div class="insight-icon">✓</div><div><h4>結算週應對邏輯正確</h4><p>懂得用選擇權 OI 判斷結算方向，代表你的籌碼解讀能力已超越大多數散戶。</p></div></div>`;
+  if(!insights)
+    insights=`<div class="insight ok"><div class="insight-icon">✓</div><div><h4>整體風控意識良好</h4><p>你已養成多數正確習慣，接下來是細節的精進與在真實波動中的持續驗證。</p></div></div>`;
+
+  const dims=[
+    {name:'資金管理',val:tA,max:12,color:'#185FA5'},
+    {name:'交易心理',val:tB,max:12,color:'#534AB7'},
+    {name:'實戰應變',val:tC,max:12,color:'#0F6E56'},
+  ];
+
+  resEl.innerHTML=`
+  <div class="result-wrap">
+    <div class="score-hero">
+      <div class="score-eyebrow">風控成熟度指數</div>
+      <div class="score-number">${pct}<span class="score-max"> / 100</span></div>
+      <div class="score-grade" style="color:${gradeColor}">${grade}</div>
+      <p class="score-summary">${summary}</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="section-label"><span class="section-tag">─</span>三維度細項分析</div>
+      <div class="dim-grid">
+        ${dims.map(d=>`
+        <div class="dim-card">
+          <div class="dim-name">${d.name}</div>
+          <div class="dim-track"><div class="dim-fill" data-w="${Math.round(d.val/d.max*100)}" style="background:${d.color};width:0%"></div></div>
+          <div class="dim-val" style="color:${d.color}">${d.val}<span class="dim-total"> / ${d.max}</span></div>
+        </div>`).join('')}
+      </div>
+    </div>
+
+    <div class="insights-section">
+      <div class="section-label"><span class="section-tag">─</span>個人化診斷洞察</div>
+      ${insights}
+    </div>
+
+    <div class="cta-block">
+      <div class="cta-divider"><span>31 年實戰的下一步</span></div>
+      <div class="cta-name">陳浩忠（阿忠）</div>
+      <div class="cta-title">期貨營業員 · 1993年入行 · 見證台指期三十年變革</div>
+      <div class="cta-points">
+        <span class="cta-point">每日盤前籌碼解讀</span>
+        <span class="cta-point">真人一對一陪盤</span>
+        <span class="cta-point">風控邏輯個別指導</span>
+        <span class="cta-point">開戶 888 元禮金</span>
+      </div>
+      <div class="cta-btns">
+        <a class="btn-primary" href="https://line.me/ti/p/aa53991" target="_blank">
+          <span class="line-icon">◉</span> 加 LINE 免費諮詢
+        </a>
+        <a class="btn-secondary" href="https://net6sji4-prog.github.io" target="_blank">
+          了解完整服務 →
+        </a>
+      </div>
+    </div>
+  </div>`;
+
+  // Animate bars after DOM insert
+  setTimeout(()=>{
+    document.querySelectorAll('.dim-fill').forEach(el=>{
+      el.style.width=el.dataset.w+'%';
+    });
+  },100);
+}
+
+document.getElementById('btnNext').onclick=function(){
+  cur++;
+  render();
+};
+
+render();
+</script>
+</body>
+</html>
