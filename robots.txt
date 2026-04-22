@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# AI 爬蟲（允許索引以提升 AI 搜尋曝光）
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://net6sji4-prog.github.io/sitemap.xml
